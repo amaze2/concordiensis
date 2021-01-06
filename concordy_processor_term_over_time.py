@@ -1,4 +1,4 @@
-import nltk, pickle, matplotlib.pyplot as plt, streamlit as st, numpy as np
+import nltk, pickle, matplotlib.pyplot as plt, streamlit as st, numpy as np, git-lfs
 nltk.download('punkt')
 nltk.download('wordnet')
 

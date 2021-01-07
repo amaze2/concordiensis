@@ -36,13 +36,16 @@ years = range(start_year,end_year+1)
 #             for month in d_year_month_text[year].keys():
 #                 d_year_month_text[year][month] = [word.lower() for word in d_year_month_text[year][month]]
 
+path = "https://raw.githubusercontent.com/amaze2/concordiensis/master/concordy_lemma.pickle"
+req = urllib.request.Request(path)
+
 lem_ans = st.sidebar.selectbox(label="Lemmatize the data?", options=("Yes","No"), index=0)
 if lem_ans == "Yes":
-    pickleIn = open("https://raw.githubusercontent.com/amaze2/concordiensis/master/concordy_lemma.pickle",'rb')
+    pickleIn = urllib.request.urlopen(req)
     d_year_month_text = pickle.load(pickleIn)
     search_terms = [lemmatizer.lemmatize(term.lower()) for term in search_terms if term.isalpha()]
 else:
-    pickleIn = open("https://raw.githubusercontent.com/amaze2/concordiensis/master/concordy_raw_no_POS.pickle",'rb')
+    pickleIn = urllib.request.urlopen(req)
     d_year_month_text = pickle.load(pickleIn)
     case_ans = st.sidebar.selectbox(label="Lower case the data?", options=("Yes","No"), index=0)
     if case_ans == "Yes":

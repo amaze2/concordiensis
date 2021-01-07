@@ -4,3 +4,4 @@ streamlit==0.70.0
 pickleshare==0.7.5
 numpy==1.17.2
 python==3.7.4
+git-lfs==1.6 

@@ -3,4 +3,4 @@ matplotlib==3.1.1
 streamlit==0.70.0
 pickleshare==0.7.5
 numpy==1.17.2
-python==3.9
+Python==3.7.4

@@ -36,6 +36,8 @@ years = range(start_year,end_year+1)
 #             for month in d_year_month_text[year].keys():
 #                 d_year_month_text[year][month] = [word.lower() for word in d_year_month_text[year][month]]
 
+pickle = pickle.HIGHEST_PROTOCOL
+
 lem_ans = st.sidebar.selectbox(label="Lemmatize the data?", options=("Yes","No"), index=0)
 if lem_ans == "Yes":
     pickleIn = open("concordy_lemma.pickle",'rb')

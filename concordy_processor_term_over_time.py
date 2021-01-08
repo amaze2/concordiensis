@@ -44,7 +44,7 @@ if lem_ans == "Yes":
         d_year_month_text = pickle.load(pickleIn)
         search_terms = [lemmatizer.lemmatize(term.lower()) for term in search_terms if term.isalpha()]
     except:
-        error = pickle.UnpicklingError()
+        error = pickle.UnpicklingError(d_year_month_text)
         print(error)
 else:
     pickleIn = open("concordy_raw_no_POS.pickle",'rb')

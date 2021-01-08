@@ -39,9 +39,13 @@ years = range(start_year,end_year+1)
 
 lem_ans = st.sidebar.selectbox(label="Lemmatize the data?", options=("Yes","No"), index=0)
 if lem_ans == "Yes":
-    pickleIn = open("concordy_lemma.pickle",'rb')
-    d_year_month_text = pickle.load(pickleIn, protocol=2)
-    search_terms = [lemmatizer.lemmatize(term.lower()) for term in search_terms if term.isalpha()]
+    try:
+        pickleIn = open("concordy_lemma.pickle",'rb')
+        d_year_month_text = pickle.load(pickleIn)
+        search_terms = [lemmatizer.lemmatize(term.lower()) for term in search_terms if term.isalpha()]
+    except:
+        error = pickle.UnpicklingError()
+        print(error)
 else:
     pickleIn = open("concordy_raw_no_POS.pickle",'rb')
     d_year_month_text = pickle.load(pickleIn)

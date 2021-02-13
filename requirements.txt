@@ -2,4 +2,3 @@ nltk==3.5
 matplotlib==3.2.1 
 streamlit==0.70.0
 numpy==1.16.3
-python==3.7.4
